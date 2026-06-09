@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Semana Nacional de Ciência e Tecnologia - IFNMG Campus Salinas</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="logo-placeholder">IFNMG</div>
+        <h1 class="site-title">Semana Nacional de Ciência e Tecnologia - IFNMG Campus Salinas</h1>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="https://snct-salinas.vercel.app/#apresentacao">Apresentação</a></li>
+            <li><a href="https://snct-salinas.vercel.app/#expediente">Expediente</a></li>
+            <li><a href="https://snct-salinas.vercel.app/#normas">Normas para Publicação</a></li>
+            <li><a href="/snct3">Edição Atual</a></li>
+            <li><a href="https://snct-salinas.vercel.app/#edicoes">Edições Anteriores</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div class="banner">
+            <img src="/images/eventos/snct1.webp" alt="Identidade Visual do Evento" class="banner-img">
+        </div>
+
+        <section id="apresentacao">
+            <h2>Sobre o Evento</h2>
+            <p>A Semana Nacional de Ciência e Tecnologia (SNCT) foi instituída em 2004 pelo Governo Federal e é sempre comemorada no mês de outubro. Neste ano de 2021, o Instituto Federal do Norte de Minas Gerais – Campus Salinas realizou a sua primeira Semana Nacional de Ciência e Tecnologia com o tema escolhido pelo Ministério da Ciência, Tecnologia e Inovações (MCTI): <strong>“A transversalidade da ciência, tecnologia e inovações para o planeta”</strong>.</p>
+            <p>O evento foi totalmente on-line com palestras ao vivo e gravadas disponibilizadas no nosso canal do YouTube.</p>
+        </section>
+
+        <section id="atividades">
+            <h2>Gravações das Palestras</h2>
+            <ul class="edicoes-list">
+                <li><a href="https://www.youtube.com/watch?v=ELow0dfZsu4" target="_blank">Cerimônia de Abertura e Palestra "Ciência e Produção de Energia"</a><span>Data: 20/10/2021</span></li>
+                <li><a href="https://www.youtube.com/watch?v=rv96OdacD0Q" target="_blank">Potencialidades da palma forrageira para o semiárido mineiro</a><span>Data: 20/10/2021</span></li>
+                <li><a href="https://www.youtube.com/watch?v=OOhTUZBT1Bg" target="_blank">A importância do "mão na massa" para o processo de ensino-aprendizagem</a><span>Data: 20/10/2021</span></li>
+                <li><a href="https://www.youtube.com/watch?v=78AXDuResUs" target="_blank">Lei da Biodiversidade e Plataforma SisGen</a><span>Disponível no YouTube</span></li>
+            </ul>
+        </section>
+
+        <section id="expediente">
+            <h2>Organização</h2>
+            <ul>
+                <li><strong>Organizado por:</strong> Comitê de Pesquisa do IFNMG - Campus Salinas</li>
+                <li><strong>Local:</strong> Totalmente Online (YouTube)</li>
+            </ul>
+        </section>
+
+    </div> 
+    
+    <footer>
+        <p><strong>I Semana Nacional de Ciência e Tecnologia - IFNMG Campus Salinas</strong></p>
+        <p>Anais e Registros do Evento - 2021</p>
+    </footer>
+
+   
+</body>
+</html>
+<script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const tbody = document.getElementById('corpo-tabela-resumos');
+            
+            try {
+                // Puxa todos os resumos do app.js
+                const resposta = await fetch('/api/resumos-simples');
+                const todosResumos = await resposta.json();
+                
+                // O FILTRO DA SNCT 1 É AQUI: Pega só os resumos onde o link_pdf tem "snct1/"
+                const resumosDesteEvento = todosResumos.filter(resumo => 
+                    resumo.link_pdf && resumo.link_pdf.includes('snct1/')
+                );
+                
+                tbody.innerHTML = ''; 
+                
+                if (resumosDesteEvento.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="3" style="text-align: center;">Nenhum resumo encontrado para este evento.</td></tr>';
+                    return;
+                }
+                
+                resumosDesteEvento.forEach(resumo => {
+                    const tr = document.createElement('tr');
+                    
+                    // Se o link já for completo (http), usa ele, se não, adiciona a / na frente
+                    const urlFinal = resumo.link_pdf.startsWith('http') ? resumo.link_pdf : `/${resumo.link_pdf}`;
+                    
+                    tr.innerHTML = `
+                        <td><strong>${resumo.titulo}</strong></td>
+                        <td>${resumo.autores}</td>
+                        <td style="text-align: center;"><a href="${urlFinal}" target="_blank" class="btn-pdf">Ver PDF</a></td>
+                    `;
+                    
+                    tbody.appendChild(tr);
+                });
+                
+            } catch (erro) {
+                console.error("Erro:", erro);
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; color: red;">Erro ao carregar os resumos.</td></tr>';
+            }
+        });
+    </script>
