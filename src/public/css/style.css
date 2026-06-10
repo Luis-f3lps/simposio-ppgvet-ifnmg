@@ -21,7 +21,7 @@ body {
 }
 
 .logo-placeholder {
-    background-color: #1a4a8c;
+    background-color: #053b02;
     color: white;
     font-weight: bold;
     font-size: 24px;
@@ -33,7 +33,7 @@ body {
 .site-title {
     font-family: 'Georgia', serif;
     font-size: 24px;
-    color: #1a4a8c;
+    color: #053b02;
     font-weight: normal;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 .main-nav a:hover {
-    background-color: #1a4a8c;
+    background-color: #053b02;
     text-decoration: underline;
 }
 
