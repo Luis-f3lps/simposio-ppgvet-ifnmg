@@ -13,18 +13,18 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get('/snct1', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'snct1.html'));
+app.get('/ppgvet1', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ppgvet1.html'));
 });
-app.get('/snct4', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'snct4.html'));
+app.get('/ppgvet2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ppgvet2.html'));
 });
-app.get('/snct2', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'snct2.html'));
+app.get('/ppgvet3', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ppgvet3.html'));
 });
 
-app.get('/snct3', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'snct3.html'));
+app.get('/ppgvet4', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ppgvet4.html'));
 });
 
 
