@@ -72,9 +72,9 @@
                 const resposta = await fetch('/api/resumos-simples');
                 const todosResumos = await resposta.json();
                 
-                // O FILTRO DA SNCT 1 É AQUI: Pega só os resumos onde o link_pdf tem "snct1/"
+                // O FILTRO DA SNCT 1 É AQUI: Pega só os resumos onde o link_pdf tem "ppgvet1"
                 const resumosDesteEvento = todosResumos.filter(resumo => 
-                    resumo.link_pdf && resumo.link_pdf.includes('snct1/')
+                    resumo.link_pdf && resumo.link_pdf.includes('ppgvet1')
                 );
                 
                 tbody.innerHTML = ''; 

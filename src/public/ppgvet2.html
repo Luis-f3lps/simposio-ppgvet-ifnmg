@@ -79,10 +79,10 @@
         </section>
         <div class="carousel-container">
             <div class="carousel-track">
-                <img src="/images/snct2/1.webp" alt="Foto 1do Evento" class="carousel-slide" />
-                <img src="/images/snct2/2.webp" alt="Foto 2 do Evento" class="carousel-slide" />
-                <img src="/images/snct2/3.webp" alt="Foto 3do Evento" class="carousel-slide" />
-                <img src="/images/snct2/4.webp" alt="Foto 4 do Evento" class="carousel-slide" />
+                <img src="/images/ppgvet21.webp" alt="Foto 1do Evento" class="carousel-slide" />
+                <img src="/images/ppgvet22.webp" alt="Foto 2 do Evento" class="carousel-slide" />
+                <img src="/images/ppgvet23.webp" alt="Foto 3do Evento" class="carousel-slide" />
+                <img src="/images/ppgvet24.webp" alt="Foto 4 do Evento" class="carousel-slide" />
             </div>
 
             <button class="carousel-btn prev-btn">&#10094;</button>
@@ -160,7 +160,7 @@
                 const todosResumos = await resposta.json();
 
                 const resumosDesteEvento = todosResumos.filter(
-                    (resumo) => resumo.link_pdf && resumo.link_pdf.includes("snct2/"),
+                    (resumo) => resumo.link_pdf && resumo.link_pdf.includes("ppgvet2"),
                 );
 
                 tbody.innerHTML = "";
