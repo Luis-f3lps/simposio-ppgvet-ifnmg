@@ -38,7 +38,7 @@ body {
 }
 
 .main-nav {
-    background-color: #2b5c9d;
+    background-color: #053b02;
 }
 
 .main-nav ul {
@@ -82,7 +82,7 @@ section {
 
 h2 {
     font-family: 'Georgia', serif;
-    color: #2b5c9d;
+    color: #053b02;
     border-bottom: 1px solid #eaeaea;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -127,7 +127,7 @@ li {
 }
 
 .edicoes-list a {
-    color: #2b5c9d;
+    color: #053b02;
     font-weight: bold;
     text-decoration: none;
 }
@@ -140,7 +140,7 @@ li {
     background-color: #f4f8fc;
     padding: 15px;
     margin-bottom: 10px;
-    border-left: 4px solid #2b5c9d;
+    border-left: 4px solid #053b02;
     list-style: none;
 }
 
@@ -178,7 +178,7 @@ footer p {
 }
 
 .tabela-resumos th {
-    background-color: #2b5c9d;
+    background-color: #053b02;
     color: white;
 }
 
