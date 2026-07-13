@@ -3,31 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>III Simpósio do PPGVET - IFNMG Campus Salinas</title>
+    <title>II Congresso do PPGVET - IFNMG Campus Salinas</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="top-header">
         <div class="logo-placeholder">IFNMG</div>
-        <h1 class="site-title">III Simpósio do Programa de Pós-Graduação em Medicina Veterinária</h1>
+        <h1 class="site-title">II Congresso do Programa de Pós-Graduação em Medicina Veterinária</h1>
     </header>
 
     <nav class="main-nav">
         <ul>
             <li><a href="#sobre">Sobre o Evento</a></li>
+            <li><a href="#eventos-integrantes">Programação / Eventos</a></li>
+            <li><a href="#inscricoes">Inscrições</a></li>
             <li><a href="#apresentacao">Apresentação do Programa</a></li>
             <li><a href="#objetivos">Objetivo do Curso</a></li>
             <li><a href="#informacoes">Informações Gerais</a></li>
+            <li><a href="#resumos">Anais</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <section id="sobre">
             <h2>Sobre o Evento</h2>
-            <p><strong>Período:</strong> 30 de setembro de 2025 a 02 de outubro de 2025</p>
-            <p>O <strong>III SIMPÓSIO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA</strong> é uma parceria entre o PPGVET, Pró-Reitoria de Pesquisa, Pós-Graduação e Inovação, IFNMG - Campus Salinas, Sistema FAEMG/SENAR e empresas parceiras.</p>
+            <p><strong>Período:</strong> 01 de outubro de 2024 a 10 de outubro de 2024</p>
+            <p>O <strong>II CONGRESSO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA</strong> é uma parceria entre o PPGVET, Pró-Reitoria de Pesquisa, Pós-Graduação e Inovação, IFNMG - Campus Salinas, Sistema FAEMG/SENAR e empresas parceiras.</p>
             <p><strong>Público-alvo:</strong> comunidade acadêmica, técnicos e extensionistas de campo da região, pecuaristas, agricultores e a sociedade de forma geral que almeja por mais conhecimento ligado às tecnologias do meio rural.</p>
         </section>
+
+        <section id="eventos-integrantes">
+            <h2>Eventos Integrantes do Congresso</h2>
+            <p>Este congresso é composto por três eventos distintos:</p>
+            
+            <div style="margin-bottom: 15px; padding-left: 15px; border-left: 4px solid #2b5c9d;">
+                <p><strong>II SIMPÓSIO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA DO IFNMG - PPGVET</strong><br>
+                <em>Data:</em> 02 a 04/10/2024</p>
+            </div>
+
+            <div style="margin-bottom: 15px; padding-left: 15px; border-left: 4px solid #2b5c9d;">
+                <p><strong>4° DIA DE CAMPO SOBRE PECUÁRIA</strong><br>
+                <em>Parceria:</em> IFNMG e o SISTEMA FAEMG/SENAR/SEBRAE/EMATER<br>
+                <em>Data:</em> 05/10/2024</p>
+            </div>
+
+            <div style="margin-bottom: 15px; padding-left: 15px; border-left: 4px solid #2b5c9d;">
+                <p><strong>2ª SEMANA DA PRODUÇÃO ANIMAL</strong><br>
+                <em>Parceria:</em> IFNMG e o SISTEMA FAEMG/SENAR/SEBRAE<br>
+                <em>Data:</em> 07 a 11/10/2024</p>
+            </div>
+        </section>
+
+        <section id="inscricoes" style="background-color: #f0f4f8; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <h2>Inscrições</h2>
+            <p><strong>Período de Inscrições:</strong> 03 de setembro de 2024 a 10 de outubro de 2024</p>
+            </section>
 
         <section id="apresentacao">
             <h2>Apresentação</h2>
@@ -42,7 +73,7 @@
         </section>
 
         <section id="informacoes">
-            <h2>Informações Gerais</h2>
+            <h2>Informações Gerais do Mestrado</h2>
             <ul>
                 <li><strong>Modalidade:</strong> Mestrado Profissional</li>
                 <li><strong>Área de concentração:</strong> Reprodução e nutrição animal</li>
@@ -51,7 +82,9 @@
                 <li><strong>Total de créditos:</strong> 24</li>
                 <li><strong>Duração:</strong> 24 meses</li>
             </ul>
-        </section>        <section id="resumos">
+        </section>        
+
+        <section id="resumos">
             <h2>Resumos Publicados (Anais)</h2>
             <p>
                 Confira abaixo a listagem de trabalhos e resumos simples publicados
@@ -84,15 +117,19 @@
             text-decoration: none;
             border-radius: 4px;
             font-weight: bold;
-          ">
+            display: inline-block;
+            ">
                 <i class="fa-solid fa-arrow-left"></i> Voltar para a Página Principal
             </a>
         </div>
     </div>
 
     <footer>
-        <p><strong>III Simpósio do Programa de Pós-Graduação em Medicina Veterinária - IFNMG Campus Salinas</strong></p>
-    </footer>    <script>
+        <p><strong>II Congresso do Programa de Pós-Graduação em Medicina Veterinária - IFNMG Campus Salinas</strong></p>
+    </footer>    
+
+    <script>
+        // Carregamento dos Resumos
         document.addEventListener("DOMContentLoaded", async () => {
             const tbody = document.getElementById("corpo-tabela-resumos");
 
@@ -100,6 +137,7 @@
                 const resposta = await fetch("/api/resumos-simples");
                 const todosResumos = await resposta.json();
 
+                // Filtro mantido para "ppgvet2" referente à segunda edição do congresso
                 const resumosDesteEvento = todosResumos.filter(
                     (resumo) => resumo.link_pdf && resumo.link_pdf.includes("ppgvet2"),
                 );
@@ -133,9 +171,11 @@
             }
         });
 
-        
+        // Lógica do Carrossel (com proteção caso os elementos não existam nesta página)
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.querySelector('.carousel-track');
+            if (!track) return; // Evita erros no console se não houver carrossel no HTML
+
             const slides = Array.from(document.querySelectorAll('.carousel-slide'));
             const nextButton = document.querySelector('.next-btn');
             const prevButton = document.querySelector('.prev-btn');
@@ -150,23 +190,29 @@
                 currentIndex = index;
             }
 
-            nextButton.addEventListener('click', () => {
-                let nextIndex = (currentIndex + 1) % slides.length;
-                atualizarCarrossel(nextIndex);
-            });
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    let nextIndex = (currentIndex + 1) % slides.length;
+                    atualizarCarrossel(nextIndex);
+                });
+            }
 
-            prevButton.addEventListener('click', () => {
-                let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-                atualizarCarrossel(prevIndex);
-            });
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    atualizarCarrossel(prevIndex);
+                });
+            }
 
             window.mudarSlideDireto = function (index) {
                 atualizarCarrossel(index);
             };
 
             setInterval(() => {
-                let nextIndex = (currentIndex + 1) % slides.length;
-                atualizarCarrossel(nextIndex);
+                if (slides.length > 0) {
+                    let nextIndex = (currentIndex + 1) % slides.length;
+                    atualizarCarrossel(nextIndex);
+                }
             }, 4000);
         });
     </script>
