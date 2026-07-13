@@ -5,6 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simpósio do PPGVET - IFNMG Campus Salinas</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos essenciais para o funcionamento do Carrossel -->
+    <style>
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 450px;
+            object-fit: cover;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(43, 92, 157, 0.7);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+        .carousel-btn:hover {
+            background-color: rgba(43, 92, 157, 1);
+        }
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+        .carousel-nav {
+            text-align: center;
+            padding: 15px 0;
+            background: #f8f9fa;
+        }
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dot.active {
+            background-color: #2b5c9d;
+        }
+    </style>
 </head>
 <body>
     <header class="top-header">
@@ -30,7 +96,34 @@
             <p><strong>Público-alvo:</strong> comunidade acadêmica, técnicos e extensionistas de campo da região, pecuaristas, agricultores e a sociedade de forma geral que almeja por mais conhecimento ligado às tecnologias do meio rural.</p>
         </section>
 
-       <section id="resumos">
+        <section id="galeria">
+            <h2>Galeria do Evento</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="images/ppgvet3/01.webp "alt="Registros do III Simpósio - Foto 1" >
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/ppgvet3/02.webp " alt="Registros do III Simpósio - Foto 2" >
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/ppgvet3/03.webp " alt="Registros do III Simpósio - Foto 3">
+                    </div>
+
+                </div>
+                
+                <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                
+                <div class="carousel-nav">
+                    <span class="dot active" onclick="mudarSlideDireto(0)"></span>
+                    <span class="dot" onclick="mudarSlideDireto(1)"></span>
+                    <span class="dot" onclick="mudarSlideDireto(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="resumos">
             <h2>Resumos Publicados (Anais)</h2>
             <p>
                 Confira abaixo a listagem de trabalhos e resumos simples publicados
@@ -63,7 +156,8 @@
             text-decoration: none;
             border-radius: 4px;
             font-weight: bold;
-          ">
+            display: inline-block;
+            ">
                 <i class="fa-solid fa-arrow-left"></i> Voltar para a Página Principal
             </a>
         </div>
@@ -71,7 +165,9 @@
 
     <footer>
         <p><strong>III Simpósio do Programa de Pós-Graduação em Medicina Veterinária - IFNMG Campus Salinas</strong></p>
-    </footer>    <script>
+    </footer>    
+
+    <script>
         document.addEventListener("DOMContentLoaded", async () => {
             const tbody = document.getElementById("corpo-tabela-resumos");
 
@@ -112,9 +208,11 @@
             }
         });
 
-        
+        // Controle do Carrossel com verificação de segurança (Null-check)
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.querySelector('.carousel-track');
+            if (!track) return; // Evita erros de script caso não ache a classe no HTML
+
             const slides = Array.from(document.querySelectorAll('.carousel-slide'));
             const nextButton = document.querySelector('.next-btn');
             const prevButton = document.querySelector('.prev-btn');
@@ -129,23 +227,29 @@
                 currentIndex = index;
             }
 
-            nextButton.addEventListener('click', () => {
-                let nextIndex = (currentIndex + 1) % slides.length;
-                atualizarCarrossel(nextIndex);
-            });
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    let nextIndex = (currentIndex + 1) % slides.length;
+                    atualizarCarrossel(nextIndex);
+                });
+            }
 
-            prevButton.addEventListener('click', () => {
-                let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-                atualizarCarrossel(prevIndex);
-            });
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    atualizarCarrossel(prevIndex);
+                });
+            }
 
             window.mudarSlideDireto = function (index) {
                 atualizarCarrossel(index);
             };
 
             setInterval(() => {
-                let nextIndex = (currentIndex + 1) % slides.length;
-                atualizarCarrossel(nextIndex);
+                if (slides.length > 0) {
+                    let nextIndex = (currentIndex + 1) % slides.length;
+                    atualizarCarrossel(nextIndex);
+                }
             }, 4000);
         });
     </script>
