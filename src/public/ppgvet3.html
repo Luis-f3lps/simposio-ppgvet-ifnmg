@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simpósio do PPGVET - IFNMG Campus Salinas</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Estilos essenciais para o funcionamento do Carrossel -->
     <style>
         .carousel-container {
@@ -15,17 +16,20 @@
             margin: 30px auto;
             overflow: hidden;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 100%;
         }
+
         .carousel-slide {
             min-width: 100%;
             box-sizing: border-box;
         }
+
         .carousel-slide img {
             width: 100%;
             height: auto;
@@ -33,6 +37,7 @@
             max-height: 450px;
             object-fit: cover;
         }
+
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -47,16 +52,25 @@
             transition: background 0.3s;
             z-index: 10;
         }
+
         .carousel-btn:hover {
             background-color: rgba(43, 92, 157, 1);
         }
-        .prev-btn { left: 15px; }
-        .next-btn { right: 15px; }
+
+        .prev-btn {
+            left: 15px;
+        }
+
+        .next-btn {
+            right: 15px;
+        }
+
         .carousel-nav {
             text-align: center;
             padding: 15px 0;
             background: #f8f9fa;
         }
+
         .dot {
             display: inline-block;
             width: 12px;
@@ -67,11 +81,13 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         .dot.active {
             background-color: #2b5c9d;
         }
     </style>
 </head>
+
 <body>
     <header class="top-header">
         <div class="logo-placeholder">IFNMG</div>
@@ -92,8 +108,12 @@
         <section id="sobre">
             <h2>Sobre o Evento</h2>
             <p><strong>Período:</strong> 30 de setembro de 2025 a 02 de outubro de 2025</p>
-            <p>O <strong>III SIMPÓSIO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA</strong> é uma parceria entre o PPGVET, Pró-Reitoria de Pesquisa, Pós-Graduação e Inovação, IFNMG - Campus Salinas, Sistema FAEMG/SENAR e empresas parceiras.</p>
-            <p><strong>Público-alvo:</strong> comunidade acadêmica, técnicos e extensionistas de campo da região, pecuaristas, agricultores e a sociedade de forma geral que almeja por mais conhecimento ligado às tecnologias do meio rural.</p>
+            <p>O <strong>III SIMPÓSIO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA</strong> é uma parceria entre
+                o PPGVET, Pró-Reitoria de Pesquisa, Pós-Graduação e Inovação, IFNMG - Campus Salinas, Sistema
+                FAEMG/SENAR e empresas parceiras.</p>
+            <p><strong>Público-alvo:</strong> comunidade acadêmica, técnicos e extensionistas de campo da região,
+                pecuaristas, agricultores e a sociedade de forma geral que almeja por mais conhecimento ligado às
+                tecnologias do meio rural.</p>
         </section>
 
         <section id="galeria">
@@ -101,20 +121,23 @@
             <div class="carousel-container">
                 <div class="carousel-track">
                     <div class="carousel-slide">
-                        <img src="images/ppgvet3/01.webp "alt="Registros do III Simpósio - Foto 1" >
+                        <img src="https://simposio-ppgvet-ifnmg.vercel.app/images/ppgvet3/01.webp"
+                            alt="Registros do III Simpósio - Foto 1">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/ppgvet3/02.webp " alt="Registros do III Simpósio - Foto 2" >
+                        <img src="https://simposio-ppgvet-ifnmg.vercel.app/images/ppgvet3/02.webp"
+                            alt="Registros do III Simpósio - Foto 2">
                     </div>
                     <div class="carousel-slide">
-                        <img src="images/ppgvet3/03.webp " alt="Registros do III Simpósio - Foto 3">
+                        <img src="https://simposio-ppgvet-ifnmg.vercel.app/images/ppgvet3/03.webp"
+                            alt="Registros do III Simpósio - Foto 3">
                     </div>
 
                 </div>
-                
+
                 <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
                 <button class="carousel-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
-                
+
                 <div class="carousel-nav">
                     <span class="dot active" onclick="mudarSlideDireto(0)"></span>
                     <span class="dot" onclick="mudarSlideDireto(1)"></span>
@@ -165,7 +188,7 @@
 
     <footer>
         <p><strong>III Simpósio do Programa de Pós-Graduação em Medicina Veterinária - IFNMG Campus Salinas</strong></p>
-    </footer>    
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
@@ -254,4 +277,5 @@
         });
     </script>
 </body>
+
 </html>

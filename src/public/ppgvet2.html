@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <header class="top-header">
         <div class="logo-placeholder">IFNMG</div>
@@ -27,14 +29,43 @@
         <section id="sobre">
             <h2>Sobre o Evento</h2>
             <p><strong>Período:</strong> 01 de outubro de 2024 a 10 de outubro de 2024</p>
-            <p>O <strong>II CONGRESSO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA</strong> é uma parceria entre o PPGVET, Pró-Reitoria de Pesquisa, Pós-Graduação e Inovação, IFNMG - Campus Salinas, Sistema FAEMG/SENAR e empresas parceiras.</p>
-            <p><strong>Público-alvo:</strong> comunidade acadêmica, técnicos e extensionistas de campo da região, pecuaristas, agricultores e a sociedade de forma geral que almeja por mais conhecimento ligado às tecnologias do meio rural.</p>
+            <p>O <strong>II CONGRESSO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA</strong> é uma parceria entre
+                o PPGVET, Pró-Reitoria de Pesquisa, Pós-Graduação e Inovação, IFNMG - Campus Salinas, Sistema
+                FAEMG/SENAR e empresas parceiras.</p>
+            <p><strong>Público-alvo:</strong> comunidade acadêmica, técnicos e extensionistas de campo da região,
+                pecuaristas, agricultores e a sociedade de forma geral que almeja por mais conhecimento ligado às
+                tecnologias do meio rural.</p>
         </section>
 
         <section id="eventos-integrantes">
             <div style="margin-bottom: 15px; padding-left: 15px; border-left: 4px solid #2b5c9d;">
-                <p><strong>II SIMPÓSIO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA DO IFNMG - PPGVET</strong><br>
-                <em>Data:</em> 02 a 04/10/2024</p>
+                <p><strong>II SIMPÓSIO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA DO IFNMG -
+                        PPGVET</strong><br>
+                    <em>Data:</em> 02 a 04/10/2024
+                </p>
+            </div>
+        </section>
+        <section id="galeria">
+            <h2>Galeria do Evento</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://simposio-ppgvet-ifnmg.vercel.app/images/ppgvet2/01.jpeg"
+                            alt="Registros do II Simpósio - Foto 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://simposio-ppgvet-ifnmg.vercel.app/images/ppgvet2/02.jpeg"
+                            alt="Registros do II Simpósio - Foto 2">
+                    </div>
+                </div>
+
+                <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+
+                <div class="carousel-nav">
+                    <span class="dot active" onclick="mudarSlideDireto(0)"></span>
+                    <span class="dot" onclick="mudarSlideDireto(1)"></span>
+                </div>
             </div>
         </section>
 
@@ -64,7 +95,7 @@
         </section>
 
         <div style="text-align: center; margin-top: 40px">
-            <a href="https://simposio-ppgvet-ifnmg.vercel.app/"  style="
+            <a href="https://simposio-ppgvet-ifnmg.vercel.app/" style="
             background-color: #2b5c9d;
             color: white;
             padding: 10px 20px;
@@ -80,7 +111,7 @@
 
     <footer>
         <p><strong>II SIMPÓSIO DO PROGRAMA DE PÓS-GRADUAÇÃO EM MEDICINA VETERINÁRIA DO IFNMG - PPGVET</strong></p>
-    </footer>    
+    </footer>
 
     <script>
         // Carregamento dos Resumos
@@ -124,11 +155,9 @@
                     '<tr><td colspan="3" style="text-align: center; color: red;">Erro ao carregar os resumos.</td></tr>';
             }
         });
-
-        // Lógica do Carrossel (com proteção caso os elementos não existam nesta página)
         document.addEventListener('DOMContentLoaded', () => {
             const track = document.querySelector('.carousel-track');
-            if (!track) return; // Evita erros no console se não houver carrossel no HTML
+            if (!track) return; // Evita erros de script caso não ache a classe no HTML
 
             const slides = Array.from(document.querySelectorAll('.carousel-slide'));
             const nextButton = document.querySelector('.next-btn');
@@ -171,4 +200,5 @@
         });
     </script>
 </body>
+
 </html>
